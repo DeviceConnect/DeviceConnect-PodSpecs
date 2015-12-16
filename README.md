@@ -1,4 +1,4 @@
-# DeviceConnect Master Repo
+# DeviceConnect Spec Repo
 
 This repository contains the public CocoaPods specifications for DeviceConnect.
 
