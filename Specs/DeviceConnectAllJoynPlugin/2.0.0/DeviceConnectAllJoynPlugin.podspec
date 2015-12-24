@@ -25,7 +25,7 @@ Pod::Spec.new do |s|
     s.platform     = :ios, "8.0"
     
     s.source       = {
-        :git => "https://github.com/DeviceConnect/DeviceConnect-iOS", :tag => "2.0.0"
+        :git => "https://github.com/Shigerelloooo/DeviceConnect-iOS", :branch => "modify_browser_cocoapods_support"
     }
     
     s.pod_target_xcconfig = {
