@@ -47,6 +47,7 @@ Pod::Spec.new do |s|
     # libstdc++.dylibだけでOKなはずなのだが、stdc++.6.dylibやstdc++.6.0.9.dylib
     # などでないとGNU C++関連のシンボル解決に失敗するので、その対処。
     s.libraries = "stdc++", "stdc++.6"
+    s.frameworks = "ExternalAccessory", "CoreMotion"
     s.dependency "DeviceConnectSDK"
     s.dependency "DeviceConnectPluginSDK"
     s.vendored_frameworks = base_path + "/RobotKit.framework", base_path + "/RobotUIKit.framework"
