@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
     s.author       = "AllSeen Alliance, Inc."
     
     # プロパティのweak属性と、automatic property synthesisをサポートするために6.0以降が必要。
-    s.platform     = :ios, "8.0"
+    s.platform     = :ios, "9.0"
     
     s.source = {
         :http => "https://allseenalliance.org/releases/alljoyn/15.04/alljoyn-15.04.00b-osx_ios-sdk.zip",

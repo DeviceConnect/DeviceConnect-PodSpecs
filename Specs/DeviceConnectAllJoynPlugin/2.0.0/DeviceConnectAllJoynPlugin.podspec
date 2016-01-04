@@ -22,7 +22,7 @@ Pod::Spec.new do |s|
     # s.social_media_url   = "https://www.facebook.com/docomo.official"
     
     # プロパティのweak属性と、automatic property synthesisをサポートするために6.0以降が必要。
-    s.platform     = :ios, "8.0"
+    s.platform     = :ios, "9.0"
     
     s.source       = {
         :git => "https://github.com/DeviceConnect/DeviceConnect-iOS", :tag => "2.0.0"
