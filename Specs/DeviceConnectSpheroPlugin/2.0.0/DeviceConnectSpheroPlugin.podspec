@@ -32,9 +32,9 @@ Pod::Spec.new do |s|
     }
     
     s.pod_target_xcconfig = {
-        # エンドターゲット（アプリとか）のDebugビルドの際、対応するアーキテクチャが含まれていない
-        # という旨で提供するライブラリがビルドされない問題への対処。
-        'ONLY_ACTIVE_ARCH' => 'NO'
+    # エンドターゲット（アプリとか）のDebugビルドの際、対応するアーキテクチャが含まれていない
+    # という旨で提供するライブラリがビルドされない問題への対処。
+        'ONLY_ACTIVE_ARCH' => 'NO',
         'ENABLE_BITCODE' => 'NO'
     }
     
