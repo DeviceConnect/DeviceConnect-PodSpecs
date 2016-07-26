@@ -46,8 +46,8 @@ Pod::Spec.new do |s|
     s.resource_bundles = {"dConnectDeviceHitoe_resources" => [base_path + "/dConnectDeviceHitoe/Resources/**/*.{#{common_resource_exts}}", base_path + "/RobotoUIKit.bundle"]}
     
     s.frameworks = "CoreGraphics", "CoreBluetooth", "CoreData"
-    s.dependency "DeviceConnectSDK"
-    s.dependency "DeviceConnectPluginSDK"
+    s.dependency "DConnectSDK"
+    s.dependency "DCMDevicePluginSDK"
     s.vendored_frameworks = base_path + "/hitoeAPI.framework"
     
 end
