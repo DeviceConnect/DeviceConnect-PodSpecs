@@ -25,7 +25,7 @@ Pod::Spec.new do |s|
     s.platform     = :ios, "9.0"
     
     s.source       = {
-        :git => "https://github.com/DeviceConnect/DeviceConnect-iOS", :tag => "2.0.0"
+        :git => "https://github.com/TakayukiHoshi1984/DeviceConnect-iOS", :tag => "2.0.0"
     }
     
     # エンドターゲット（アプリとか）のDebugビルドの際、対応するアーキテクチャが含まれていない
