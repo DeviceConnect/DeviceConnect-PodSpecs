@@ -25,8 +25,7 @@ Pod::Spec.new do |s|
     s.platform     = :ios, "9.0"
     
     s.source       = {
-#         :git => "https://github.com/DeviceConnect/DeviceConnect-iOS", :tag => "1.0.0"
-          :git => "https://github.com/TakayukiHoshi1984/DeviceConnect-iOS", :branch => "feature_hitoe_deviceplugin"
+        :git => "https://github.com/DeviceConnect/DeviceConnect-iOS", :tag => "1.0.0"
 
     }
     

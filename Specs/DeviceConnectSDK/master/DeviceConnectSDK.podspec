@@ -1,12 +1,13 @@
 # TODO: plistの変数展開はどうすれば良いだろうか。
 Pod::Spec.new do |s|
     
-    s.name         = "DeviceConnectAWSIoTPlugin"
+    s.name         = "DeviceConnectSDK"
     s.version      = "2.0.0"
-    s.summary      = "Device Connect Plugin for AWSIoT"
+    s.summary      = "Device Connect SDK"
     
     s.description  = <<-DESC
-    A Device Connect plugin for AWSIoT.
+    Device Connect SDK for iOS.
+    
     Device Connect is an IoT solution for interconnecting various modern devices.
     Also available in Android: https://github.com/DeviceConnect/DeviceConnect-Android .
     DESC
@@ -32,13 +33,17 @@ Pod::Spec.new do |s|
     s.pod_target_xcconfig = { 'ONLY_ACTIVE_ARCH' => 'NO' }
     
     common_resource_exts = "plist,lproj,storyboard,strings,xcdatamodeld,png"
-    base_path = "dConnectDevicePlugin/dConnectDeviceAWSIoT"
+    base_path = "dConnectSDK/dConnectSDKForIOS"
     
-    s.private_header_files = base_path + "/dConnectDeviceAWSIoT/Classes/**/*.h"
-    s.source_files = base_path + "/dConnectDeviceAWSIoT/Classes/**/*.{h,m}"
-    s.resource_bundles = {"dConnectDeviceAWSIoT_resources" => [base_path + "/dConnectDeviceAWSIoT/Resources/**/*.{#{common_resource_exts}}"]}
+    s.preserve_path = base_path + "/NOTICE.TXT"
     
-    s.dependency "DeviceConnectSDK"
-    s.dependency "AWSIoT"
+    # エンドターゲット（アプリとか）のプリコンパイルドヘッダー汚染の恐れあり。
+    s.prefix_header_file = base_path + "/DConnectSDK/DConnectSDK-Prefix.pch"
+    s.header_dir = "DConnectSDK"
+    s.public_header_files = base_path + "/DConnectSDK/DConnectSDK/*.h"
+    s.source_files = base_path + "/DConnectSDK/DConnectSDK/*.h", base_path + "/DConnectSDK/{Classes,Dependencies}/**/*.{h,m,c}"
+    s.resource_bundles = {"DConnectSDK_resources" => [base_path + "/DConnectSDK/Resources/**/*.{#{common_resource_exts}}"]}
+    
+    s.library = "sqlite3"
     
 end

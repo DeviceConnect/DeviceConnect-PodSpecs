@@ -1,12 +1,15 @@
 # TODO: plistの変数展開はどうすれば良いだろうか。
 Pod::Spec.new do |s|
     
-    s.name         = "DeviceConnectAWSIoTPlugin"
+    s.name         = "DeviceConnectPluginSDK"
     s.version      = "2.0.0"
-    s.summary      = "Device Connect Plugin for AWSIoT"
+    s.summary      = "Device Connect Plugin SDK"
     
     s.description  = <<-DESC
-    A Device Connect plugin for AWSIoT.
+    Device Connect plugin SDK for iOS.
+    
+    This SDK defines Device Connect profiles that are in the incubation phase.
+    
     Device Connect is an IoT solution for interconnecting various modern devices.
     Also available in Android: https://github.com/DeviceConnect/DeviceConnect-Android .
     DESC
@@ -32,13 +35,14 @@ Pod::Spec.new do |s|
     s.pod_target_xcconfig = { 'ONLY_ACTIVE_ARCH' => 'NO' }
     
     common_resource_exts = "plist,lproj,storyboard,strings,xcdatamodeld,png"
-    base_path = "dConnectDevicePlugin/dConnectDeviceAWSIoT"
+    base_path = "dConnectDevicePlugin/DCMDevicePluginSDK"
     
-    s.private_header_files = base_path + "/dConnectDeviceAWSIoT/Classes/**/*.h"
-    s.source_files = base_path + "/dConnectDeviceAWSIoT/Classes/**/*.{h,m}"
-    s.resource_bundles = {"dConnectDeviceAWSIoT_resources" => [base_path + "/dConnectDeviceAWSIoT/Resources/**/*.{#{common_resource_exts}}"]}
+    # エンドターゲット（アプリとか）のプリコンパイルドヘッダー汚染の恐れあり。
+    s.prefix_header_file = base_path + "/DCMDevicePluginSDK/DCMDevicePluginSDK-Prefix.pch"
+    s.header_dir = "DCMDevicePluginSDK"
+    s.public_header_files = base_path + "/DCMDevicePluginSDK/Headers/*.h"
+    s.source_files = base_path + "/DCMDevicePluginSDK/Headers/*.h", base_path + "/DCMDevicePluginSDK/Classes/**/*.{h,m}"
     
     s.dependency "DeviceConnectSDK"
-    s.dependency "AWSIoT"
     
 end

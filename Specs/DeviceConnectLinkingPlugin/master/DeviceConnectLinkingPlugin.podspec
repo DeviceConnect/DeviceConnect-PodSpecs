@@ -1,12 +1,13 @@
 # TODO: plistの変数展開はどうすれば良いだろうか。
 Pod::Spec.new do |s|
     
-    s.name         = "DeviceConnectAWSIoTPlugin"
+    s.name         = "DeviceConnectLinkingPlugin"
     s.version      = "2.0.0"
-    s.summary      = "Device Connect Plugin for AWSIoT"
+    s.summary      = "Device Connect Plugin for Linking"
     
     s.description  = <<-DESC
-    A Device Connect plugin for AWSIoT.
+    A Device Connect plugin for Linking.
+    
     Device Connect is an IoT solution for interconnecting various modern devices.
     Also available in Android: https://github.com/DeviceConnect/DeviceConnect-Android .
     DESC
@@ -24,7 +25,7 @@ Pod::Spec.new do |s|
     s.platform     = :ios, "9.0"
     
     s.source       = {
-        :git => "https://github.com/DeviceConnect/DeviceConnect-iOS", :branch => "master"
+        :git => "https://github.com/TakayukiHoshi1984/DeviceConnect-iOS", :branch => "master"
     }
     
     # エンドターゲット（アプリとか）のDebugビルドの際、対応するアーキテクチャが含まれていない
@@ -32,13 +33,14 @@ Pod::Spec.new do |s|
     s.pod_target_xcconfig = { 'ONLY_ACTIVE_ARCH' => 'NO' }
     
     common_resource_exts = "plist,lproj,storyboard,strings,xcdatamodeld,png"
-    base_path = "dConnectDevicePlugin/dConnectDeviceAWSIoT"
+    base_path = "dConnectDevicePlugin/dConnectDeviceLinking"
     
-    s.private_header_files = base_path + "/dConnectDeviceAWSIoT/Classes/**/*.h"
-    s.source_files = base_path + "/dConnectDeviceAWSIoT/Classes/**/*.{h,m}"
-    s.resource_bundles = {"dConnectDeviceAWSIoT_resources" => [base_path + "/dConnectDeviceAWSIoT/Resources/**/*.{#{common_resource_exts}}"]}
+    # エンドターゲット（アプリとか）のプリコンパイルドヘッダー汚染の恐れあり。
+    s.prefix_header_file = base_path + "/dConnectDeviceLinking/dConnectDeviceLinking-Prefix.pch"
+    s.public_header_files = base_path + "/dConnectDeviceLinking/Headers/*.h"
+    s.source_files = base_path + "/dConnectDeviceLinking/Headers/*.h", base_path + "/dConnectDeviceLinking/Classes/**/*.{h,m}"
+    s.resource_bundles = {"dConnectDeviceLinking_resources" => [base_path + "/dConnectDeviceLinking/Resources/**/*.{#{common_resource_exts}}"]}
     
     s.dependency "DeviceConnectSDK"
-    s.dependency "AWSIoT"
     
 end
