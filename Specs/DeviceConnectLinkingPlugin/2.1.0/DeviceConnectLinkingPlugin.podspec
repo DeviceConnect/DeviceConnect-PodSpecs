@@ -2,7 +2,7 @@
 Pod::Spec.new do |s|
     
     s.name         = "DeviceConnectLinkingPlugin"
-    s.version      = "2.0.0"
+    s.version      = "2.1.0"
     s.summary      = "Device Connect Plugin for Linking"
     
     s.description  = <<-DESC

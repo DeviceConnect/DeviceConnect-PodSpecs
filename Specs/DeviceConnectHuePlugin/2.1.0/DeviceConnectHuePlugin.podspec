@@ -3,7 +3,7 @@
 Pod::Spec.new do |s|
     
     s.name         = "DeviceConnectHuePlugin"
-    s.version      = "2.0.0"
+    s.version      = "2.1.0"
     s.summary      = "Device Connect Plugin for Hue"
     
     s.description  = <<-DESC
